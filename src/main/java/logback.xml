@@ -1,0 +1,48 @@
+<configuration>
+
+	<!--
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		
+		<encoder>
+			<pattern>[%d{MM/dd-HH:mm:ss.SSS}][%-5level] %msg\(%c.java:%L\)%n
+			</pattern>
+		</encoder>
+	</appender>
+	<root>
+		<appender-ref ref="STDOUT" />
+	</root> 
+	
+	-->
+	<!--
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/RIS3/webui/log/ws-rolling.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>ws-rolling.%i.log</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>3</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>40MB</MaxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy/MM/dd-HH:mm:ss.SSS}][%-5level] %msg \(%c.java:%L\)%n</pattern>
+        </layout>
+    </appender>
+    -->
+ 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy/MM/dd-HH:mm:ss.SSS}][%-5level] %msg  \(%c.java:%L\)%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+		<!-- appender-ref ref="ROLLING" / -->
+    </root>
+    <logger name="com.iisi" level="DEBUG" />
+    <logger name="func" level="DEBUG" />
+    <logger name="tw.gov.moi.dbo" level="DEBUG" />
+    <logger name="org.hibernate" level="INFO" />
+    <logger name="tw.gov" level="DEBUG">
+		<!-- <appender-ref ref="STDOUT" /> -->
+    </logger>
+</configuration>
